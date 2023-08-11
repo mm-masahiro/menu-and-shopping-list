@@ -3,8 +3,18 @@ services:
   backend:
     container_name: app-backend
     build: ./rust
+    image: backend
     tty: true
     volumes:
       - ../:/menu_and_shopping_list
     ports:
       - 8080:8080
+  forntend:
+    container_name: app-frontend
+    build: ./react
+    image: frontend
+    tty: true
+    volumes:
+      - ../:/menu_and_shopping_list
+    ports:
+      - 5173:5173
