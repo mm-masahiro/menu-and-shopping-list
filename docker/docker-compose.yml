@@ -9,6 +9,18 @@ services:
       - ../:/menu_and_shopping_list
     ports:
       - 8080:8080
+  mysql:
+    image: mysql:8.1.0
+    platform: "linux/amd64"
+    container_name: app-database
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql-data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - TZ=Asia/Tokyo
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_bin
   forntend:
     container_name: app-frontend
     build: ./react
@@ -18,3 +30,6 @@ services:
       - ../:/menu_and_shopping_list
     ports:
       - 5173:5173
+
+volumes:
+  mysql-data:
