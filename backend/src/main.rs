@@ -2,7 +2,7 @@ use actix_web::{get, App, HttpResponse, HttpServer, Responder};
 use futures::executor::block_on;
 use sea_orm::{ConnectionTrait, Database, DbBackend, DbErr, Statement};
 
-const DATABASE_URL: &str = "mysql://root:password@localhost:3306";
+const DATABASE_URL: &str = "mysql://root:root@localhost:3306";
 const DB_NAME: &str = "menu_and_shopping_list";
 
 async fn run() -> Result<(), DbErr> {
