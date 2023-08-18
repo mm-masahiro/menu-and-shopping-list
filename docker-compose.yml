@@ -2,7 +2,7 @@ version: "3.8"
 services:
   backend:
     container_name: app-backend
-    build: ./rust
+    build: ./docker/rust
     image: backend
     tty: true
     volumes:
@@ -24,7 +24,7 @@ services:
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_bin
   forntend:
     container_name: app-frontend
-    build: ./react
+    build: ./docker/react
     image: frontend
     tty: true
     volumes:
