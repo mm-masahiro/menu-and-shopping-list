@@ -6,7 +6,7 @@ services:
     image: backend
     tty: true
     volumes:
-      - ../:/menu_and_shopping_list
+      - ./:/menu_and_shopping_list
     ports:
       - 8080:8080
   mysql:
@@ -28,7 +28,7 @@ services:
     image: frontend
     tty: true
     volumes:
-      - ../:/menu_and_shopping_list
+      - ./:/menu_and_shopping_list
     ports:
       - 5173:5173
 
