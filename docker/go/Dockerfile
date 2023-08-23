@@ -1,5 +1,3 @@
-FROM rust:1.71
-
-RUN cargo new backend
+FROM golang:1.21.0
 
 WORKDIR /menu_and_shopping_list/backend
