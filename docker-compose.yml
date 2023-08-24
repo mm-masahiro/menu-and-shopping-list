@@ -2,7 +2,7 @@ version: "3.8"
 services:
   backend:
     container_name: app-backend
-    build: ./docker/rust
+    build: ./docker/go
     image: backend
     tty: true
     volumes:
