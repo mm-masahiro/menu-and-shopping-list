@@ -8,6 +8,8 @@ import (
 	"github.com/joho/godotenv"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
+
+	user "backend/api/user"
 )
 
 type User struct {
@@ -34,10 +36,6 @@ func main() {
 
 	db.AutoMigrate(&User{})
 
-	http.HandleFunc("/", handler)
+	http.HandleFunc("/user/create", user.Create)
 	http.ListenAndServe(":8080", nil)
-}
-
-func handler(writer http.ResponseWriter, _ *http.Request) {
-	fmt.Fprint(writer, "Hello, world!!!")
 }
