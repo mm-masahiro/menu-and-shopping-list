@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"time"
 
+	data "backend/model"
 	model "backend/model/user"
 )
 
@@ -26,7 +27,7 @@ type CreateRequest struct {
 func Create(w http.ResponseWriter, r *http.Request) {
 	reqBody, _ := io.ReadAll(r.Body)
 
-	var user model.User
+	var user data.User
 
 	if err := json.Unmarshal(reqBody, &user); err != nil {
 		log.Fatal(err)
