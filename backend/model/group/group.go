@@ -8,8 +8,8 @@ import (
 
 var db *gorm.DB
 
-func CreateUser(user *data.User) error {
-	if err := db.Create(&user).Error; err != nil {
+func CreateGroup(group *data.Group) error {
+	if err := db.Create(&group).Error; err != nil {
 		return err
 	}
 
