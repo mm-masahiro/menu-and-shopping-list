@@ -24,6 +24,14 @@ type Group struct {
 
 var db *gorm.DB
 
+func GetUsers(users *[]User) error {
+	if err := db.Find(&users).Error; err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func CreateUser(user *User) error {
 	if err := db.Create(&user).Error; err != nil {
 		return err
