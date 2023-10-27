@@ -18,6 +18,7 @@ type User struct {
 }
 
 func main() {
+	http.HandleFunc("/users", user.GetUsers)
 	http.HandleFunc("/user/create", user.Create)
 	http.HandleFunc("/group/create", group.Create)
 	http.ListenAndServe(":8080", nil)
