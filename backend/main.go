@@ -5,8 +5,8 @@ import (
 
 	"gorm.io/gorm"
 
+	group "backend/api/group"
 	user "backend/api/user"
-	models "backend/model"
 )
 
 type User struct {
@@ -18,8 +18,7 @@ type User struct {
 }
 
 func main() {
-	models.InitDb()
-
 	http.HandleFunc("/user/create", user.Create)
+	http.HandleFunc("/group/create", group.Create)
 	http.ListenAndServe(":8080", nil)
 }
